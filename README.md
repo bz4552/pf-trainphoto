@@ -20,7 +20,7 @@
 - 他のユーザーとも投稿した写真を共有しあう時
 
 ## 設計書
-テーブル定義書
+- テーブル定義書
 - https://docs.google.com/spreadsheets/d/1m5WokeBAvaZAmDqVwWt5oQUo0Ld7wUkU7M3nB1l5Z6Y/edit#gid=0
 
 
