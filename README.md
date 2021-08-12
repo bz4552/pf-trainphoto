@@ -1,29 +1,4 @@
-<<<<<<< HEAD
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
 # 鉄道写真情報共有サイト「撮り鉄情報ガイド」
 
 ## サイト概要
@@ -60,4 +35,4 @@ https://docs.google.com/spreadsheets/d/118O7MovGKBLoXL6dGrHgBqiYA6K6CUj9w4SyOCMc
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
->>>>>>> origin/main
+
