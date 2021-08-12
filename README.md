@@ -35,4 +35,4 @@ https://docs.google.com/spreadsheets/d/118O7MovGKBLoXL6dGrHgBqiYA6K6CUj9w4SyOCMc
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
->>>>>>> origin/main
+
