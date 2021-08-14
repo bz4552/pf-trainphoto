@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+  
   has_many :comments, dependent: :destroy
   attachment :profile_image
 
@@ -23,5 +27,9 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-
+  
+  private
+    def active?
+      !suspended?
+    end
 end
