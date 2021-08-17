@@ -1,0 +1,10 @@
+<% if @post.images.present? %>
+<% @post.images.each do |image| %>
+<%= attachment_image_tag image, :image, :fill, 300, 300 %>
+<% end %>
+<% else %>
+<%= image_tag 'no_image.jpg', size: '200x200' %>
+<% end %>
+
+<%= link_to("編集",edit_post_path(@post)) %>
+<%= link_to "削除",post_path(@post), method: :delete, data: { confirm: "削除してよろしいですか？" } %>

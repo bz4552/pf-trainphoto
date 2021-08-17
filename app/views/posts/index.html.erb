@@ -1,0 +1,27 @@
+<h1>投稿一覧</h1>
+<% @posts.each do |post| %>
+<div>
+  <%= link_to post_path(post.id) do %>
+  <%= attachment_image_tag(@post, :image) %>
+  <% end %>
+  <p>投稿ユーザー画像：<%= image_tag(current_user) %></p>
+  <P>会社名</P>
+  <span><%= post.company %></span>
+  <P>路線名</P>
+  <span><%= post.line %></span>
+  <P>形式</P>
+  <span><%= post.series %></span>
+  <P>編成</P>
+  <span><%= post.car %></span>
+  <P>場所</P>
+  <span><%= post.place %></span>
+  <P>タイトル</P>
+  <span><%= post.title %></span>
+  <P>本文</P>
+  <span><%= post.body %></span>
+  <P>日付</P>
+  <span><%= post.date %></span>
+  <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
+</div>
+<% end %>
+<%= paginate @posts %>

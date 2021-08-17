@@ -27,9 +27,5 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-  
-  private
-    def active?
-      !suspended?
-    end
+
 end

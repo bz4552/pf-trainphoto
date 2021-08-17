@@ -1,15 +1,6 @@
 Rails.application.routes.draw do
-  get 'search/search'
-
-  root to: 'homes#top'
-  
-  resources :posts, only: [:new, :create, :index, :show, :edit, :destroy] do
-    resource :favorites, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
-  end
-  
   devise_for :admins, controllers: {
-    sessions: 'admins/sessions',  
+    sessions: 'admins/sessions',
   }
 
   devise_for :users, controllers: {
@@ -17,8 +8,19 @@ Rails.application.routes.draw do
     passwords: 'public/passwords',
     registrations: 'public/registrations'
   }
-  
+
+  root to: 'homes#top'
+  get "about" => "homes#about"
+  get 'search/search'
+
+  resources :posts, only: [:new, :create, :index, :show, :update, :edit, :destroy] do
+    resource :favorites, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
+  end
+  resources :users, only: [:show, :edit, :update]
+
   namespace :admin do
     resources :categories, only:[:index, :create, :new, :edit, :update]
   end
+
 end
