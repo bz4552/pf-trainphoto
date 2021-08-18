@@ -1,0 +1,26 @@
+<div class="form wrapper">
+  <h1 class="title">編集画面</h1>
+  <div class="form_post">
+    <%= form_with model:@post, url: post_path, local:true do |f|%>
+      <div class="field">
+        <%= f.label :"タイトル" %><br />
+        <%= f.text_field :title, autofocus: true, class: "text_field" %>
+      </div>
+      <div class="field">
+        <%= f.label :"場所" %><br />
+        <%= f.text_field :place, class: "text_field" %>
+      </div>
+      <div class="field">
+        <%= f.label :"感想" %><br />
+        <%= f.text_area :body, class: "text_area" %>
+      </div>
+      <div class="field">
+        <%= f.label :"画像" %><br />
+        <%= f.attachment_field :images_images, multiple: true %>
+      </div>
+      <%= f.submit '訂正', class: "button" %>
+    <% end %>
+    <%= link_to "詳細", post_path %>
+    <%= link_to "削除", post_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>

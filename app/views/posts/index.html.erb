@@ -1,27 +1,18 @@
-<h1>投稿一覧</h1>
-<% @posts.each do |post| %>
-<div>
-  <%= link_to post_path(post.id) do %>
-  <%= attachment_image_tag(@post, :image) %>
+<div class="newPost_index_box">
+  <% @posts.each do |post| %>
+    <%= link_to post_path(post) do %>
+      <div class="newPost_index_box_item">
+        <% if post.images.present? %>
+          <% post.images.first(1).each do |image| %>
+            <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+          <% end %>
+        <% else %>
+          <%= image_tag 'no_image.jpg', width: '70%', height: '70%' %>
+        <% end %>
+        <p>会社名 : <%= post.company %></p>
+        <p>形式 : <%= post.series %></p>
+      </div>
+    <% end %>
   <% end %>
-  <p>投稿ユーザー画像：<%= image_tag(current_user) %></p>
-  <P>会社名</P>
-  <span><%= post.company %></span>
-  <P>路線名</P>
-  <span><%= post.line %></span>
-  <P>形式</P>
-  <span><%= post.series %></span>
-  <P>編成</P>
-  <span><%= post.car %></span>
-  <P>場所</P>
-  <span><%= post.place %></span>
-  <P>タイトル</P>
-  <span><%= post.title %></span>
-  <P>本文</P>
-  <span><%= post.body %></span>
-  <P>日付</P>
-  <span><%= post.date %></span>
-  <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
 </div>
-<% end %>
 <%= paginate @posts %>
