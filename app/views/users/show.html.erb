@@ -1,19 +1,38 @@
-<div class="profile-container">
-  <h3 class="profile-name"><%= @user.name %></h3>
-  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-  <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <% end %>
+<div class="userShow wrapper">
+  <div class="userShow_myPage">
+    <h1 class="title">マイページ</h1>
+    <div class="userShow_myPage_show">
+      <div class="userShow_myPage_show_field">
+        <p>ユーザーネーム</p>
+        <%= @user.name %>
+      </div>
+      <% if @user == current_user %>
+      <% end %>
+      <% if @user == current_user %>
+        <div class="userShow_myPage_show_button">
+          <%= link_to "編集", edit_user_path, class: "button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="userShow_myPost">
+    <h1 class="title">投稿一覧</h1>
+    <div class="userShow_myPost_show">
+      <% @posts.each do |post| %>
+      <div class="userShow_myPost_show_box">
+        <% if post.images.present? %>
+          <% post.images.first(1).each do |image| %>
+            <%= link_to post_path(post.id) do %>
+              <%= attachment_image_tag image, :image, :fill, 180, 180 %>
+            <% end %>
+          <% end %>
+          <% else %>
+            <%= image_tag 'no_image.jpg', width: '75%', height: '85%' %>
+        <% end %>
+        <p class="link"><%= post.title %></p>
+      </div>
+      <% end %>
+    </div>
+    <%= paginate @posts %>
+  </div>
 </div>
-<% @posts.each do |post| %>
-<div>
-  <%= link_to post_path(post.id) do %>
-    <%= attachment_image_tag @post, :image %>
-  <% end %>
-  <p>投稿ユーザー画像：<%= image_tag(current_user) %></p>
-  <p>ショップ名：<%= post.company %></p>
-  <p>説明：<%= post.body %></p>
-  <p>ユーザーネーム：<%= post.user.name %></p>
-</div>
-<% end %>
-<%= paginate @posts %>

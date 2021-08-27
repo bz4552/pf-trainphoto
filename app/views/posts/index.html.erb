@@ -1,18 +1,21 @@
-<div class="newPost_index_box">
-  <% @posts.each do |post| %>
+<div class="container">
+  <div class="row">
+  <div class="item">
+    <% @posts.each do |post| %>
     <%= link_to post_path(post) do %>
-      <div class="newPost_index_box_item">
         <% if post.images.present? %>
           <% post.images.first(1).each do |image| %>
-            <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+            <%= attachment_image_tag image, :image, :fill, 250, 180 %>
           <% end %>
         <% else %>
           <%= image_tag 'no_image.jpg', width: '70%', height: '70%' %>
         <% end %>
         <p>会社名 : <%= post.company %></p>
         <p>形式 : <%= post.series %></p>
-      </div>
+        <p>場所 : <%= post.place %></p>
     <% end %>
   <% end %>
+  </div>
+  </div>
 </div>
 <%= paginate @posts %>
