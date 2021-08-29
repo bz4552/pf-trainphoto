@@ -40,7 +40,7 @@
       </div>
       <%= f.submit '訂正', class: "button" %>
     <% end %>
-    <%= link_to "詳細", post_path %>
-    <%= link_to "削除", post_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <td><%= link_to "投稿詳細へ戻る", post_path, class: "btn btn-danger" %></td>
+    <td><%= link_to "削除", post_path, method: :delete, class: "btn btn-primary", data: { confirm: 'Are you sure?' } %></td>
   </div>
 </div>

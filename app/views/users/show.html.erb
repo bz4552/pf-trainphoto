@@ -10,8 +10,7 @@
       <% end %>
       <% if @user == current_user %>
         <div class="userShow_myPage_show_button">
-          <%= link_to "編集", edit_user_path, class: "button" %>
-        </div>
+          <td><%= link_to "編集", edit_user_path, class: "btn btn-warning" %></td>
       <% end %>
     </div>
   </div>
