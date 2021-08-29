@@ -1,9 +1,9 @@
-<div class="container">
-  <div class="row">
-  <div class="item">
+<div class="container bg-white my-4">
+  <div class="row justify-content-around">
     <% @posts.each do |post| %>
-    <%= link_to post_path(post) do %>
-        <% if post.images.present? %>
+    <div class="col-lg-3 col-12 mt-4">
+     <%= link_to post_path(post) do %>
+     <% if post.images.present? %>
           <% post.images.first(1).each do |image| %>
             <%= attachment_image_tag image, :image, :fill, 250, 180 %>
           <% end %>
@@ -13,9 +13,8 @@
         <p>会社名 : <%= post.company %></p>
         <p>形式 : <%= post.series %></p>
         <p>場所 : <%= post.place %></p>
-    <% end %>
-  <% end %>
-  </div>
-  </div>
+     <% end %>
+     </div>
+     <% end %>
 </div>
 <%= paginate @posts %>
