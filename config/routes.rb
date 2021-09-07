@@ -12,17 +12,10 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get "about" => "homes#about"
 
-  resources :posts, only: [:new, :create, :index, :show, :update, :search, :edit, :destroy] do
+  resources :posts, only: [:new, :create, :index, :show, :update, :edit, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
-    collection do
-      get 'search'
-    end
   end
   resources :users, only: [:show, :edit, :update]
-
-  namespace :admin do
-    resources :categories, only:[:index, :create, :new, :edit, :update]
-  end
-
+  
 end

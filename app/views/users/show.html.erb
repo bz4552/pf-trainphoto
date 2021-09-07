@@ -3,8 +3,8 @@
     <h2 class="title">マイページ</h2>
     <div class="userShow_myPage_show_field">
         <p>ユーザーネーム</p>
-        <%= @user.name %>
-        <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+        <td><%= @user.name %></td>
+        <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
       </div>
       <% if @user == current_user %>
       <% end %>
