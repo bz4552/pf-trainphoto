@@ -17,6 +17,218 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-body{
-  background-image: image-url("hoge.jpg");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.show-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.show-title{
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+}
+
+.show-nice{
+  margin-left: 20px;
+}
+
+.show-image{
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+}
+
+.show-images{
+  width: 600px;
+  height: 700px;
+  object-fit: contain;
+}
+
+.show-contents{
+  width: 40%;
+  margin-left: 80px;
+}
+
+.show-text{
+  margin-bottom: 10px;
+}
+
+.show-details{
+  margin-top: 40px;
+  line-height: 20px;
+}
+
+.bold{
+  width: 280px;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: solid 1px #000;
+}
+
+.destroy{
+  color: red;
+}
+
+.comment{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.comment-title{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.comment-count{
+  margin-left: 10px;
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.comment-contents{
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-index{
+  display: flex;
+  justify-content: center;
+}
+
+.comment-details{
+  margin: 30px;
+}
+
+.comment-body{
+  margin: 30px;
+  width: 320px;
+}
+
+.comment-icon{
+  margin-top: 10px;
+}
+
+.comment-new{
+  display: flex;
+  justify-content: center;
+}
+
+.comment-form{
+  width: 300px;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.comment-submit{
+  width: 80px;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .show-container{
+    display: block;
+    margin-top: 20px;
+  }
+
+  .show-title{
+    display: block;
+    text-align: center;
+    padding-top: 60px;
+  }
+
+  .show-nice{
+    margin-left: 0px;
+    margin-top: 5px;
+  }
+
+  .show-image{
+    display: block;
+    margin: 0 auto;
+  }
+
+  .show-images{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .show-contents{
+    width: 100%;
+    text-align: center;
+    margin-left: 0px;
+  }
+
+  .show-details{
+    text-align: center;
+    line-height: 20px;
+  }
+
+  .bold{
+    display: inline-block;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: solid 1px #000;
+  }
+
+  .destroy{
+    color: red;
+  }
+  
+  .comment{
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .comment-title{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .comment-count{
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: 20px;
+  }
+
+  .comment-contents{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .comment-index{
+    display: block;
+    text-align: center;
+  }
+
+  .comment-details{
+    margin: 10px;
+  }
+
+  .comment-body{
+    margin: 10px;
+    width: 100%;
+  }
+
+  .comment-new{
+    display: block;
+    text-align: center;
+  }
+
+  .comment-form{
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+
 }

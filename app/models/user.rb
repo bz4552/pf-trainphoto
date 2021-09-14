@@ -9,6 +9,8 @@ class User < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+  
+  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
 
   has_many :comments, dependent: :destroy
   attachment :profile_image

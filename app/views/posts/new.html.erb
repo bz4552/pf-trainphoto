@@ -1,30 +1,48 @@
-<div class="container">
+<div class="container bg-white col-md-5 my-4">
   <div class="row">
-    <div class="col-md-6 offset-md-3 mb-3">
-      <h1 class="mb-5 text-center">画像投稿フォーム</h1>
-      <%= form_with model: @post, local:true do |f| %>
-      <div class="container bg-light">
-        <h4>画像</h4>
-  <%= f.attachment_field :images_images, multiple: true %>
-  <h4>会社名</h4>
-  <%= f.text_field :company %>
-  <h4>路線名</h4>
-  <%= f.text_field :line %>
-  <h4>形式</h4>
-  <%= f.text_field :series %>
-  <h4>編成</h4>
-  <%= f.text_field :car %>
-  <h4>場所</h4>
-  <%= f.text_field :place %>
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-  <h4>本文</h4>
-  <%= f.text_area :body %>
-  <h4>日付</h4>
-  <%= f.text_field :date %>
-  <%= f.submit '投稿' %>
-<% end %>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h2 class="mt-1 mb-3  font_space">新規投稿</h2>
+        <%= form_with model: @post, local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :images_images, "画像" %><br>
+          <%= f.attachment_field :images_images, multiple: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label :company, "会社名" %><br>
+          <%= f.text_field :company, multiple: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label :line, "路線名" %><br>
+          <%= f.text_field :line, multiple: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label :series, "形式" %><br>
+          <%= f.text_field :series, multiple: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label :car, "編成" %><br>
+          <%= f.text_field :car, multiple: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label :place, "場所" %><br>
+          <%= f.text_field :place, class: "form-control place" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :title, "タイトル" %><br>
+          <%= f.text_field :title, multiple: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label :date, "撮影年月日" %><br>
+          <%= f.text_field :date, multiple: true %>
+        </div>
+        <div class="form-group">
+          <%= f.label :body, "本文" %><br>
+          <%= f.text_area :body, class: "form-control body" %>
+        </div>
+        <div class="form-detail">
+        <%= f.submit :"投稿する", class:"btn btn-success"  %>
       </div>
-    </div>
+        <% end %>
+      </div>
   </div>
 </div>
