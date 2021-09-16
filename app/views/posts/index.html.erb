@@ -9,8 +9,8 @@
     <div class="col-lg-8 text-center">
         <h2 class="text-center">投稿一覧</h2>
         <div class="row">
+          <% @posts.each do |post| %>
             <div class="container">
-              <% @posts.each do |post| %>
           <% post.images.each do |image| %>
             <%= attachment_image_tag image, :image, :fill, 250, 180 %>
             <%= link_to post_path(post) do %>
