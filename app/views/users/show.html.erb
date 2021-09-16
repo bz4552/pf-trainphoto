@@ -1,17 +1,17 @@
 <div class='container bg-white col-md-8 my-4'>
   <div class='row'>
-    <div class='col-md-3'>
-      <h2>User info</h2>
-      <%= link_to users_path(@user) do %>
+    <div class='col-lg-4'>
+      <h2 class="text-center">User info</h2>
+      <%= link_to users_path(current_user) do %>
       <%= render 'info', user: current_user %>
       <% end %>
     </div>
     <div class='col-md-8 text-center'>
-      <h2>投稿一覧</h2>
+      <h2 class="text-center">マイ投稿一覧</h2>
       <div class="row">
     <% @posts.each do |post| %>
     <div class="container">
-     <%= link_to post_path(post) do %>
+     <%= link_to post_path(post.id) do %>
      <% if post.images.present? %>
           <% post.images.first(1).each do |image| %>
             <%= attachment_image_tag image, :image, :fill, 250, 180 %>
@@ -25,4 +25,5 @@
      <% end %>
     </div>
   </div>
+</div>
 </div>

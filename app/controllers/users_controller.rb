@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
-  
+
   def ensure_correct_user
     @user = User.find(params[:id])
     if current_user != @user
