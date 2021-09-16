@@ -11,7 +11,7 @@
         <div class="row">
             <div class="container">
               <% @posts.each do |post| %>
-          <% @post.images.each do |image| %>
+          <% post.images.each do |image| %>
             <%= attachment_image_tag image, :image, :fill, 250, 180 %>
             <%= link_to post_path(post) do %>
           <% end %>
