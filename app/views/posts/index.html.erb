@@ -7,19 +7,22 @@
     </div>
     <div class="col-lg-8">
       <h2 class="text-center">投稿一覧</h2>
-          <% @posts.each do |post| %>
-        <%= link_to post_path(post) do %>
+      <div class="row">
+        <% @posts.each do |post| %>
+        <%= link_to post_path(post.id) do %>
         <% if @post.images.present? %>
-          <% @post.images.first(1).each do |image| %>
+        <% @post.images.first(1).each do |image| %>
             <%= attachment_image_tag image, :image, :fill, 200, 200 %>
           <% end %>
         <% else %>
           <%= image_tag 'no_image.jpg', width: '200', height: '200' %>
         <% end %>
+
         <p>会社名 : <%= @post.company %></p>
         <p>形式 : <%= @post.series %></p>
         <p>場所 : <%= @post.place %></p>
       <% end %>
+      </div>
       <% end %>
     </div>
   </div>
