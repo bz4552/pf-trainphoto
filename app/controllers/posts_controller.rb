@@ -3,14 +3,19 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.images.build
   end
 
   def create
     @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    @post.user = current_user
+    @post.company = params[:post][:company]
+    @post.line = params[:post][:line]
+    @post.series = params[:post][:series]
+    @post.car = params[:post][:car]
+    @post.title = params[:post][:title]
+    @post.date = params[:post][:date]
     if @post.save
-      redirect_to posts_path
+      redirect_to posts_path(@post.id)
     else
       render :new
     end
@@ -18,7 +23,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    @posts = Post.page(params[:page]).reverse_order
   end
 
   def show
@@ -45,7 +49,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :line, :body, :series, :car, :place, :company, :line, :date, images_images: [])
+    params.require(:post).permit(:company, :line, :series, :car, :place, :title, :date, :body, images_images: [])
   end
 
 end

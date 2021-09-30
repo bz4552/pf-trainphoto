@@ -1,16 +1,49 @@
-<div class="container">
-  <div class="row">
-  TOKIO
-  <% @posts.each do |post| %>
-  <%= link_to post_path(post) do %>
+<div class='container bg-white col-md-8 my-4'>
+  <div class='row'>
+    <div class='col-md-4'>
+      <h2 class="text-center">User info</h2>
+      <%= link_to users_path(current_user) do %>
+      <%= render 'users/info', user: current_user %>
+      <% end %>
+    </div>
+    <div class='col-md-8 text-center'>
+        <% @posts.each do |post| %>
+        <%= link_to post_path(post.id) do %>
   <% if post.images.present? %>
   <% post.images.first(1).each do |image| %>
-            <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+            <%= attachment_image_tag image, :image, :fill, 250, 180 %>
           <% end %>
         <% else %>
           <%= image_tag 'no_image.jpg', width: '200', height: '200' %>
         <% end %>
+      <div class="show-contents text-center">
+      <div class="show-details">
+        <p class="show-text">タイトル</p>
+        <p class="show-text bold"><%= post.title %></p>
+        <p class="show-text">路線名</p>
+        <p class="show-text bold"><%= post.line %></p>
+        <p class="show-text">会社名</p>
+        <p class="show-text bold"><%= post.company %></p>
+        <p class="show-text">形式</p>
+        <p class="show-text bold"><%= post.series %></p>
+        <p class="show-text">編成</p>
+        <p class="show-text bold"><%= post.car %></p>
+        <p class="show-text">場所</p>
+        <p class="show-text bold"><%= post.place %></p>
+        <p class="show-text">撮影年月日</p>
+        <p class="show-text bold"><%= post.date %></p>
+        <p class="show-text">本文</p>
+        <p class="show-text bold"><%= post.body %></p>
+        <p class="show-text">投稿年月日</p>
+        <p class="show-text bold"><%= post.created_at.strftime('%Y/%m/%d') %></p>
+        <% if post.user == current_user %>
+        <td><%= link_to "編集",edit_post_path(post), class: "btn btn-warning" %></td>
+        <td><%= link_to "削除",post_path(post), method: :delete, class: "btn btn-primary", data: { confirm: "削除してよろしいですか？" } %></td>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+    </div>
   </div>
-  <% end %>
-  <% end %>
 </div>
