@@ -13,7 +13,7 @@ class Post < ApplicationRecord
   validates :date, presence: true
   validates :line, presence: true
 
-  
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end

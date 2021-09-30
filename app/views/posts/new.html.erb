@@ -2,12 +2,6 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
         <h2 class="text-center">新規投稿</h2>
-        <% if @post.errors.any? %>
-        <%= @post.errors.count %>件のエラーが発生しました
-        <% @post.errors.full_messages.each do |message| %>
-        <%= message %>
-        <% end %>
-        <% end %>
         <%= form_with model: @post, url: posts_path, local: true do |f| %>
         <div class="form-group">
           <%= f.label :images_images, "画像" %><br>

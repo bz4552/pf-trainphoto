@@ -3,17 +3,13 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.images.build
   end
 
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    if @post.save
-      redirect_to posts_path
-    else
-      render :new
-    end
+    @post.save
+    redirect_to posts_path
   end
 
   def index
